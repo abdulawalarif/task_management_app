@@ -66,6 +66,8 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
+                      /// TODO bringing raltime date and time here
                       daysOfWeek(
                           nameOfDay: "Sun", dateOfTheDay: "5", isToday: true),
                       daysOfWeek(
@@ -83,7 +85,7 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                     ],
                   ),
                 ),
-
+               //
                // const TodaysTasksTitleDescriptionAndColor(
                //    titleOfProject: "Project Research",
                //    descriptionsOfTheProject: "Discuss with the colleagues about the future plan",

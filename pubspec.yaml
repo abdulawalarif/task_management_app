@@ -14,6 +14,8 @@ dependencies:
   percent_indicator: ^4.2.3
   flutter_rounded_date_picker: ^3.0.4
   day_night_time_picker: ^1.3.1
+  dynamic_timeline:
+    path: ./dynamic_timeline
 dev_dependencies:
   flutter_test:
     sdk: flutter
