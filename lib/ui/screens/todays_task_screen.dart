@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:task_management_app/ui/constants/app_constants.dart';
 import 'package:task_management_app/ui/constants/routes/routes_name.dart';
 import 'package:task_management_app/ui/widgets/apps_title_bold_text.dart';
@@ -17,6 +18,7 @@ class TodaysTaskScreen extends StatefulWidget {
 class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffFFF9EB),
@@ -38,9 +40,8 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppsTitleBoldText(
+                    const AppsTitleBoldText(
                       title: "Today",
-                      fontSize: 26.sp,
                     ),
                     addTaskButton(),
                   ],
@@ -49,16 +50,14 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                 Text(
                   "Productive Day, Sourav",
                   style: TextStyle(
-                      color: AppConstants.appTaskScreensDateColor,
-                      fontSize: 15.sp),
+                    color: AppConstants.appTaskScreensDateColor,
+                  ),
                 ),
                 Gap(2.5.h),
                 Text(
-                  "April, 2020",
+                  "${DateFormat.MMMM().format(now)}, ${now.year}",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500),
+                      color: Colors.black, fontWeight: FontWeight.w500),
                 ),
                 Gap(2.5.h),
                 Padding(
@@ -66,31 +65,44 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
                       /// TODO bringing raltime date and time here
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "5", isToday: true),
+                          nameOfDay: "${DateFormat.EEEE().format(now)}",
+                          dateOfTheDay: "${now.day}",
+                          isToday: true),
                       daysOfWeek(
-                          nameOfDay: "Mon", dateOfTheDay: "6", isToday: false),
+                          nameOfDay: "${getNextDays(1)[0]}",
+                          dateOfTheDay: "${getNextDays(1)[1]}",
+                          isToday: false),
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "7", isToday: false),
+                          nameOfDay: "${getNextDays(2)[0]}",
+                          dateOfTheDay: "${getNextDays(2)[1]}",
+                          isToday: false),
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "8", isToday: false),
+                          nameOfDay: "${getNextDays(3)[0]}",
+                          dateOfTheDay: "${getNextDays(3)[1]}",
+                          isToday: false),
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "9", isToday: false),
+                          nameOfDay: "${getNextDays(4)[0]}",
+                          dateOfTheDay: "${getNextDays(4)[1]}",
+                          isToday: false),
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "10", isToday: false),
+                          nameOfDay: "${getNextDays(5)[0]}",
+                          dateOfTheDay: "${getNextDays(5)[1]}",
+                          isToday: false),
                       daysOfWeek(
-                          nameOfDay: "Sun", dateOfTheDay: "11", isToday: false),
+                          nameOfDay: "${getNextDays(6)[0]}",
+                          dateOfTheDay: "${getNextDays(6)[1]}",
+                          isToday: false),
                     ],
                   ),
                 ),
-               //
-               // const TodaysTasksTitleDescriptionAndColor(
-               //    titleOfProject: "Project Research",
-               //    descriptionsOfTheProject: "Discuss with the colleagues about the future plan",
-               //    backgroundColor: Color(0xffFFE4C7),
-               //  ),
+                //
+                // const TodaysTasksTitleDescriptionAndColor(
+                //    titleOfProject: "Project Research",
+                //    descriptionsOfTheProject: "Discuss with the colleagues about the future plan",
+                //    backgroundColor: Color(0xffFFE4C7),
+                //  ),
                 Gap(3.h),
                 TodaysTaskCustomPackage(),
                 Gap(6.h)
@@ -102,12 +114,26 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
     );
   }
 
+  getNextDays(int numberOfDays) {
+    DateTime now = DateTime.now();
+    List daysList = [];
+
+    DateTime nextDay = now.add(Duration(days: numberOfDays));
+    String dayName = DateFormat.EEEE().format(nextDay);
+    String dayDate = DateFormat.d().format(nextDay);
+    daysList.add(dayName);
+    daysList.add(dayDate);
+
+    return daysList;
+  }
+
   Widget addTaskButton() {
     return Padding(
       padding: EdgeInsets.only(right: 5.w),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushReplacementNamed(RoutesName.createNewTaskScreen);
+          Navigator.of(context)
+              .pushReplacementNamed(RoutesName.createNewTaskScreen);
         },
         child: Container(
           height: 5.7.h,
@@ -115,13 +141,13 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
           decoration: BoxDecoration(
               color: const Color(0xff339398),
               borderRadius: BorderRadius.circular(40)),
-          child: Center(
+          child: const Center(
               child: Text(
             "Add task",
             style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 13.sp),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           )),
         ),
       ),
@@ -135,7 +161,6 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
   }) {
     return Column(
       children: [
-
         Text(
           nameOfDay,
           style: TextStyle(
@@ -156,5 +181,3 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
     );
   }
 }
-
-

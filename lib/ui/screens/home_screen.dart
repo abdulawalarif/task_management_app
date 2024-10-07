@@ -77,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AppsTitleBoldText(
+                        const  AppsTitleBoldText(
                           title: "My Tasks",
-                          fontSize: 17.sp,
+
                         ),
                         GestureDetector(
                           onTap: (){
@@ -123,9 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Gap(3.h),
-                    AppsTitleBoldText(
+                    const  AppsTitleBoldText(
                       title: "Active Projects",
-                      fontSize: 17.sp,
+
                     ),
 
                       Gap(2.h),
@@ -202,9 +202,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Gap(5.w),
           Column(
             children: [
-              AppsTitleBoldText(
+              const  AppsTitleBoldText(
                 title: "Sourav Suman",
-                fontSize: 24.sp,
+
               ),
               Gap(.2.h),
               Text(

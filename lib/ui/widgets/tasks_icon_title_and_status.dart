@@ -9,12 +9,13 @@ class TaskIconTitleAndStatus extends StatelessWidget {
   final int nowGoingOn;
   final int started;
   final IconWithBackgroundColorForTasks iconWithBackgroundColorForTasks;
-  const TaskIconTitleAndStatus(
-      {super.key,
-      required this.iconWithBackgroundColorForTasks,
-      required this.taskTitle,
-      required this.nowGoingOn,
-      required this.started});
+  const TaskIconTitleAndStatus({
+    super.key,
+    required this.iconWithBackgroundColorForTasks,
+    required this.taskTitle,
+    required this.nowGoingOn,
+    required this.started,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +31,12 @@ class TaskIconTitleAndStatus extends StatelessWidget {
             children: [
               AppsTitleBoldText(
                 title: taskTitle,
-                fontSize: 15.sp,
               ),
               Gap(.3.h),
               Text(
                 "$nowGoingOn task now $started started",
                 style: TextStyle(
                   color: const Color(0xffC3C0B6),
-                  fontSize: 11.sp,
                 ),
               ),
             ],

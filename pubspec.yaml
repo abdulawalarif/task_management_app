@@ -25,3 +25,6 @@ flutter:
   assets:
     - assets/images/
     - assets/
+    
+    
+    #https://pub.dev/packages/dynamic_timeline
