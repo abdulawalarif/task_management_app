@@ -5,7 +5,6 @@ import 'package:task_management_app/ui/constants/app_constants.dart';
 import 'package:task_management_app/ui/constants/routes/routes_name.dart';
 import 'package:task_management_app/ui/widgets/apps_title_bold_text.dart';
 import 'package:task_management_app/ui/widgets/todays_task_custom_package.dart';
-import 'package:task_management_app/ui/widgets/todays_tasks_title_description_color.dart';
 import 'package:sizer/sizer.dart';
 
 class TodaysTaskScreen extends StatefulWidget {
@@ -47,7 +46,7 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                   ],
                 ),
                 Gap(2.5.h),
-                Text(
+                const  Text(
                   "Productive Day, Sourav",
                   style: TextStyle(
                     color: AppConstants.appTaskScreensDateColor,
@@ -56,7 +55,7 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                 Gap(2.5.h),
                 Text(
                   "${DateFormat.MMMM().format(now)}, ${now.year}",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
                 Gap(2.5.h),
@@ -65,9 +64,8 @@ class _TodaysTaskScreenState extends State<TodaysTaskScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      /// TODO bringing raltime date and time here
-                      daysOfWeek(
-                          nameOfDay: "${DateFormat.EEEE().format(now)}",
+                       daysOfWeek(
+                          nameOfDay: DateFormat.EEEE().format(now),
                           dateOfTheDay: "${now.day}",
                           isToday: true),
                       daysOfWeek(

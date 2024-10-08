@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           GestureDetector(
                             onTap: () {
                               _scaffoldKey.currentState?.openDrawer();
-                            },
+                             },
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                   vertical: 3.h, horizontal: 5.w),

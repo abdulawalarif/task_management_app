@@ -44,9 +44,9 @@ class TodaysTasksTitleDescriptionAndColor extends StatelessWidget {
                     titleOfProject,
                     maxLines: 2, // Set the maximum number of lines as needed
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style:const TextStyle(
                       color: Colors.black,
-                      fontSize: 12.sp,
+
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -56,9 +56,9 @@ class TodaysTasksTitleDescriptionAndColor extends StatelessWidget {
                   width: 60.w,
                   child: Text(
                     descriptionsOfTheProject,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black54,
-                        fontSize: 12.sp,
+
                         fontWeight: FontWeight.w400),
                   ),
                 ),

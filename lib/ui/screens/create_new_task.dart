@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:task_management_app/ui/constants/app_constants.dart';
+import 'package:task_management_app/ui/constants/routes/routes_name.dart';
 import 'package:task_management_app/ui/widgets/icon_with_background_color.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
@@ -346,20 +347,25 @@ class _CreateNewTaskState extends State<CreateNewTask> {
                         ],
                       ),
                       Gap(7.5.h),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 2.h),
+                      InkWell(
+                        onTap: (){
+                          Navigator.of(context).pushReplacementNamed(RoutesName.homeScreen);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 2.h),
 
-                        decoration: BoxDecoration(
-                            color: const Color(0Xff6588E4),
-                            borderRadius: BorderRadius.circular(40)),
-                        child: Center(
-                            child: Text(
-                              "Create Task",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17.sp),
-                            )),
+                          decoration: BoxDecoration(
+                              color: const Color(0Xff6588E4),
+                              borderRadius: BorderRadius.circular(40)),
+                          child: Center(
+                              child: Text(
+                                "Create Task",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17.sp),
+                              )),
+                        ),
                       )
                     ],
                   ),
