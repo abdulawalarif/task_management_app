@@ -6,7 +6,8 @@
 
 
 
-![Whole app](<task.png>)
+ 
+ <img src="demo/demo.gif" width="20%" alt="Demo of this application" />
 
 ## Features
 
